@@ -26,12 +26,13 @@ document.addEventListener('keydown', (event) => {
         if(event.ctrlKey){
         }else if(event.shiftKey){
         }else{
-            event.preventDefault();
             if(keyName == "h" || keyName == "ArrowLeft"){
+                event.preventDefault();
                 if(btnprev != null){
                     btnprev.click();
                 }
             }else if(keyName == "j" || keyName == "ArrowDown"){
+                event.preventDefault();
                 if(focus_idx < max_idx){
                     focus_idx++;
                     link[focus_idx].focus();
@@ -39,6 +40,7 @@ document.addEventListener('keydown', (event) => {
                     link[focus_idx].focus();
                 }
             }else if(keyName == "k" || keyName == "ArrowUp"){
+                event.preventDefault();
                 if(focus_idx > 0){
                     focus_idx--;
                     link[focus_idx].focus();
@@ -46,6 +48,7 @@ document.addEventListener('keydown', (event) => {
                     link[focus_idx].focus();
                 }
             }else if(keyName == "l" || keyName == "ArrowRight"){
+                event.preventDefault();
                 if(btnnext != null){
                     btnnext.click();
                 }

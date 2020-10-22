@@ -1,4 +1,4 @@
-.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner:focus{
+.sw-Card__title.sw-Card__title--cite:focus-within{
     outline: none;
     outline-color: initial;
     outline-style: none;
@@ -11,6 +11,12 @@
     transition-duration: 0.1s;
     transition-timing-function: ease-out;
     transition-delay: 0s;
+}
+.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner:focus{
+    outline: none;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
 }
 .sw-Card__title.sw-Card__title--cite .sw-Card__titleInner:focus::before{
     /*content: "7/8 ▶";*/
