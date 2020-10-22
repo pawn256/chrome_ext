@@ -1,0 +1,25 @@
+.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner:focus{
+    outline: none;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
+    position: relative;
+    display: block;
+    transform: translate(-1em, -0.1em);
+    transition: ease-out .1s;
+    transition-property: all;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+    transition-delay: 0s;
+}
+.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner:focus::before{
+    /*content: "7/8 ▶";*/
+    /*content: var(--focus-before-content);*/
+    content: attr(data-content-idx);
+    font-size: 16px;
+    white-space: nowrap;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    transform: translate(-8px);
+}

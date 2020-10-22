@@ -1,5 +1,5 @@
-var link=document.querySelectorAll('#rso > .g:not(.kno-kp) .rc .yuRUbf > a');
-const lists = Array.from(document.querySelectorAll("#rso > .g:not(.kno-kp) .rc .yuRUbf > a"));
+var link_class_name = '.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner';
+const lists = Array.from(document.querySelectorAll(link_class_name));
 lists.forEach(link => {
     link.addEventListener("focus", e => {
         const index = lists.findIndex(list => list === e.target);
@@ -9,15 +9,16 @@ lists.forEach(link => {
         e.target.setAttribute('data-content-idx',"");
     });
 });
-var focus_idx=0;
-var max_idx=link.length-1;
+var link=document.querySelectorAll(link_class_name);
+var focus_idx = 0;
+var max_idx = link.length-1;
 link[focus_idx].focus(); // default focus.
 
+var search_form = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp')
+var btnprev = document.querySelector('.Pagenation__prev > a');
+var btnnext = document.querySelector('.Pagenation__next > a');
 document.addEventListener('keydown', (event) => {
-    var search_form=document.querySelector('.gLFyf.gsfi');
     var keyName = event.key;
-    var btnnext = document.querySelector('#pnnext');
-    var btnprev = document.querySelector('#pnprev');
     console.log(keyName);
     if(document.activeElement == search_form && keyName != "Tab"){
     }else{
@@ -25,25 +26,26 @@ document.addEventListener('keydown', (event) => {
         if(event.ctrlKey){
         }else if(event.shiftKey){
         }else{
-            if(keyName == "h"){
+            event.preventDefault();
+            if(keyName == "h" || keyName == "ArrowLeft"){
                 if(btnprev != null){
                     btnprev.click();
                 }
-            }else if(keyName == "j"){
+            }else if(keyName == "j" || keyName == "ArrowDown"){
                 if(focus_idx < max_idx){
                     focus_idx++;
                     link[focus_idx].focus();
                 }else{
                     link[focus_idx].focus();
                 }
-            }else if(keyName == "k"){
+            }else if(keyName == "k" || keyName == "ArrowUp"){
                 if(focus_idx > 0){
                     focus_idx--;
                     link[focus_idx].focus();
                 }else{
                     link[focus_idx].focus();
                 }
-            }else if(keyName == "l"){
+            }else if(keyName == "l" || keyName == "ArrowRight"){
                 if(btnnext != null){
                     btnnext.click();
                 }
@@ -64,10 +66,7 @@ document.addEventListener('keypress', (event) => {
 });
 
 document.addEventListener('keyup', (event) => {
-    var search_form=document.querySelector('.gLFyf.gsfi');
     var keyName = event.key;
-    var btnnext = document.querySelector('#pnnext');
-    var btnprev = document.querySelector('#pnprev');
     if(document.activeElement == search_form && keyName != "Tab" && keyName != "Escape"){
     }else{
 
@@ -75,7 +74,8 @@ document.addEventListener('keyup', (event) => {
         }else if(event.shiftKey) {
         }else{
             if(keyName == "/"){
-                var maxlen=search_form.getAttribute('maxlength');
+                //var maxlen=search_form.getAttribute('maxlength');
+                var maxlen = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp').value.length;
                 search_form.focus();
                 search_form.setSelectionRange(maxlen,maxlen);
             }else if(keyName == "Escape"){

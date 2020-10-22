@@ -6,8 +6,13 @@
     "content_scripts": [
         {
             "matches": ["https://www.google.com/*"],
-            "css": ["content.css"],
-            "js": ["content.js"]
+            "css": ["google_search.css"],
+            "js": ["google_search.js"]
+        },
+        {
+            "matches": ["https://search.yahoo.co.jp/*"],
+            "css": ["yahoo_search.css"],
+            "js": ["yahoo_search.js"]
         }
     ],
     "background": {
