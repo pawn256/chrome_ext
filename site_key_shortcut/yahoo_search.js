@@ -21,6 +21,9 @@ document.addEventListener('keydown', (event) => {
     var keyName = event.key;
     console.log(keyName);
     if(document.activeElement == search_form && keyName != "Tab"){
+            if(keyName == "Escape"){
+                event.preventDefault(); // stopped the erasing string function of yahoo.
+            }
     }else{
 
         if(event.ctrlKey){
