@@ -56,6 +56,10 @@ document.addEventListener('keydown', (event) => {
                 if(btnnext != null){
                     btnnext.click();
                 }
+            }else if(keyName == "/"){
+                var maxlen = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp').value.length;
+                search_form1.focus();
+                search_form1.setSelectionRange(maxlen,maxlen);
             }else if(keyName == "Escape"){
             }
         }
@@ -81,10 +85,6 @@ document.addEventListener('keyup', (event) => {
         }else if(event.shiftKey) {
         }else{
             if(keyName == "/"){
-                //var maxlen=search_form.getAttribute('maxlength');
-                var maxlen = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp').value.length;
-                search_form1.focus();
-                search_form1.setSelectionRange(maxlen,maxlen);
             }else if(keyName == "Escape"){
                 search_form1.blur();
                 search_form2.blur();
