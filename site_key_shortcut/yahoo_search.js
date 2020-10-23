@@ -14,13 +14,14 @@ var focus_idx = 0;
 var max_idx = link.length-1;
 link[focus_idx].focus(); // default focus.
 
-var search_form = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp')
+var search_form1 = document.querySelectorAll('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp')[0]
+var search_form2 = document.querySelectorAll('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp')[1]
 var btnprev = document.querySelector('.Pagenation__prev > a');
 var btnnext = document.querySelector('.Pagenation__next > a');
 document.addEventListener('keydown', (event) => {
     var keyName = event.key;
     console.log(keyName);
-    if(document.activeElement == search_form && keyName != "Tab"){
+    if((document.activeElement == search_form1 || document.activeElement == search_form2)  && keyName != "Tab"){
             if(keyName == "Escape"){
                 event.preventDefault(); // stopped the erasing string function of yahoo.
             }
@@ -73,7 +74,7 @@ document.addEventListener('keypress', (event) => {
 
 document.addEventListener('keyup', (event) => {
     var keyName = event.key;
-    if(document.activeElement == search_form && keyName != "Tab" && keyName != "Escape"){
+    if((document.activeElement == search_form1 || document.activeElement == search_form2) && keyName != "Tab" && keyName != "Escape"){
     }else{
 
         if(event.ctrlKey){
@@ -82,10 +83,11 @@ document.addEventListener('keyup', (event) => {
             if(keyName == "/"){
                 //var maxlen=search_form.getAttribute('maxlength');
                 var maxlen = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp').value.length;
-                search_form.focus();
-                search_form.setSelectionRange(maxlen,maxlen);
+                search_form1.focus();
+                search_form1.setSelectionRange(maxlen,maxlen);
             }else if(keyName == "Escape"){
-                search_form.blur();
+                search_form1.blur();
+                search_form2.blur();
             }
         }
     }
