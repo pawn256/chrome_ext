@@ -57,6 +57,7 @@ document.addEventListener('keydown', (event) => {
                     btnnext.click();
                 }
             }else if(keyName == "/"){
+                event.preventDefault();
                 var maxlen = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp').value.length;
                 search_form1.focus();
                 search_form1.setSelectionRange(maxlen,maxlen);

@@ -51,6 +51,11 @@ document.addEventListener('keydown', (event) => {
                 if(btnnext != null){
                     btnnext.click();
                 }
+            }else if(keyName == "/"){
+                event.preventDefault();
+                var maxlen=search_form.getAttribute('maxlength');
+                search_form.focus();
+                search_form.setSelectionRange(maxlen,maxlen);
             }else if(keyName == "Escape"){
             }
         }
@@ -79,9 +84,6 @@ document.addEventListener('keyup', (event) => {
         }else if(event.shiftKey) {
         }else{
             if(keyName == "/"){
-                var maxlen=search_form.getAttribute('maxlength');
-                search_form.focus();
-                search_form.setSelectionRange(maxlen,maxlen);
             }else if(keyName == "Escape"){
                 search_form.blur();
             }
