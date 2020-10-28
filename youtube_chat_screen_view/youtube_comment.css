@@ -1,0 +1,68 @@
+#player-container #my-comment-list{
+    position:absolute;
+    height:calc(100% - 54px); /* maybe should use this parameter -> $('.ytp-chrome-bottom').offsetHeight */
+    width:20%;
+    /*background:rgba(255,0,0,0.2);*/
+    z-index:1;
+    overflow:hidden; /* Hide comments that overhang the top. */
+}
+
+#player-container #my-comment-list #my-comment-list-bottom-parent{
+    position:relative;
+    height:100%;
+    width:100%;
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent #my-comment-list-bottom-child{
+    position:absolute;
+    bottom:0;
+    height:auto;
+    width:100%;
+    opacity:1.0; /* all comment is transparent */
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-user-icon{
+    border-radius:50%;
+    width:24px;
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment{
+    /*background:rgba(255,0,0,0.5);*/
+    padding: 5px;
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data{
+    background:var(--yt-live-chat-background-color);
+    /*color:var(--yt-live-chat-primary-text-color, var(--yt-primary-text-color));*/
+    padding: 5px;
+    border-radius: 15px 5px 5px 15px / 15px 5px 5px 15px; /* top-left top-right bottom-right bottom-left / top-left top-right bottom-right bottom-left*/
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-header{
+    position:relative;
+    /*background:rgb(0,255,0,0.5);*/
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-header .my-user-icon{
+    /*background:rgb(255,255,0,0.5);*/
+    vertical-align:middle;
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-header .my-user-data-header-text{
+    display:inline-block;
+    vertical-align:middle;
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-header .my-user-data-header-text .my-user-name{
+    /*background:rgb(255,0,255,0.5);*/
+    font-size:12px;
+    color:var(--yt-live-chat-secondary-text-color);
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-header .my-user-data-header-text .my-user-timestamp{
+    /*background:rgb(0,255,255,0.5);*/
+    font-size:11px;
+    color:var(--yt-live-chat-tertiary-text-color);
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-content{
+    /*background:rgba(0,0,255,0.5);*/
+    margin-left:12px;
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-content .my-message{ /* user comment(text + image) */
+    font-size:13px;
+    color:var(--yt-live-chat-primary-text-color, var(--yt-primary-text-color))
+}
+#player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-content .my-message img{ /* the image in user comment.*/
+    width:12px;
+}
