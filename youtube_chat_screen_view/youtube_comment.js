@@ -47,13 +47,13 @@ function callback(mutationList, observer) {
                             my_comment_list_elem.appendChild(my_comment_list_bottom_parent_elem);
                             player.insertBefore(my_comment_list_elem,player.firstChild);
                         }
+                        my_comment_list_bottom_child_elem.style.opacity = 1.0; // initialize
                         if(comment_transparent_intid != null){
                             clearInterval(comment_transparent_intid);
                         }
                         if(comment_transparent_timid != null){
                             clearInterval(comment_transparent_timid);
                         }
-                        my_comment_list_bottom_child_elem.style.opacity = 1.0; // initialize
                         comment_transparent_timid = setTimeout(function(){
                             comment_transparent_intid = setInterval(function(){
                                 if(my_comment_list_bottom_child_elem.style.opacity > 0){

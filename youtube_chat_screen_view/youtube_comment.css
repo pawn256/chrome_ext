@@ -39,11 +39,14 @@
 }
 #player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-header .my-user-icon{
     /*background:rgb(255,255,0,0.5);*/
+    display:inline-block;
+    margin-right:5px;
     vertical-align:middle;
 }
 #player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-header .my-user-data-header-text{
     display:inline-block;
     vertical-align:middle;
+    width:calc(100% - 30px); /* user icon size + margin-right of user-icon */
 }
 #player-container #my-comment-list #my-comment-list-bottom-parent .my-comment .my-user-data .my-user-data-header .my-user-data-header-text .my-user-name{
     /*background:rgb(255,0,255,0.5);*/
