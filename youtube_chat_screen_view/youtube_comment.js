@@ -226,6 +226,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
         //comment_transparent_intid = null;
         //comment_transparent_timid = null;
         //observer = null;
+        if(comment_transparent_intid != null){
+            clearInterval(comment_transparent_intid);
+        }
+        if(comment_transparent_timid != null){
+            clearInterval(comment_transparent_timid);
+        }
+        if(observer != null){
+            observer.disconnect();
+        }
         myfunc1();
     }else if(request.message == "OFF"){
         if(comment_transparent_intid != null){
