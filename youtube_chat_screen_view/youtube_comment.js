@@ -1,25 +1,29 @@
-var chat_frame_id = "chatframe";
-var chat_id = "chat";
-var items_id = "items";
-var user_icon_id = "img";
-var user_post_time_id = "timestamp";
-var user_comment_id = "message";
-var user_name_id = "author-name";
-var player_id = "player-container";
-var my_comment_list_id = "my-comment-list";
-var my_comment_list_bottom_parent_id = "my-comment-list-bottom-parent";
-var my_comment_list_bottom_child_id = "my-comment-list-bottom-child";
-var my_comment_class = "my-comment";
-var my_message_class = "my-message";
-var my_user_icon_class = "my-user-icon";
-var my_user_data_class = "my-user-data";
-var my_user_name_class = "my-user-name";
-var my_user_timestamp_class = "my-user-timestamp";
-var my_user_data_header_class = "my-user-data-header";
-var my_user_data_content_class = "my-user-data-content";
-var my_user_data_header_text_class = "my-user-data-header-text";
-var comment_transparent_intid = null;
-var comment_transparent_timid = null;
+let chat_frame_id = "chatframe";
+let chat_id = "chat";
+let items_id = "items";
+let user_icon_id = "img";
+let user_post_time_id = "timestamp";
+let user_comment_id = "message";
+let user_name_id = "author-name";
+let player_id = "player-container";
+let my_comment_list_id = "my-comment-list";
+let my_comment_list_bottom_parent_id = "my-comment-list-bottom-parent";
+let my_comment_list_bottom_child_id = "my-comment-list-bottom-child";
+let my_comment_class = "my-comment";
+let my_message_class = "my-message";
+let my_user_icon_class = "my-user-icon";
+let my_user_data_class = "my-user-data";
+let my_user_name_class = "my-user-name";
+let my_user_timestamp_class = "my-user-timestamp";
+let my_user_data_header_class = "my-user-data-header";
+let my_user_data_content_class = "my-user-data-content";
+let my_user_data_header_text_class = "my-user-data-header-text";
+let comment_transparent_intid = null;
+let comment_transparent_timid = null;
+let observer = null;
+let my_comment_list_elem = null;
+let my_comment_list_bottom_parent_elem = null;
+let my_comment_list_bottom_child_elem = null;
 const MAX_COUNT = 10;
 
 function callback(mutationList, observer) {
@@ -29,10 +33,10 @@ function callback(mutationList, observer) {
                 mutation.addedNodes.forEach((node) => {
                     if(node.tagName == "YT-LIVE-CHAT-TEXT-MESSAGE-RENDERER"){
                         // comment element
-                        var player = document.querySelector(`#${player_id}`);
-                        var my_comment_list_elem = document.querySelector(`#${player_id} #${my_comment_list_id}`);
-                        var my_comment_list_bottom_parent_elem = document.querySelector(`#${player_id} #${my_comment_list_id} #${my_comment_list_bottom_parent_id}`);
-                        var my_comment_list_bottom_child_elem = document.querySelector(`#${player_id} #${my_comment_list_id} #${my_comment_list_bottom_parent_id} #${my_comment_list_bottom_child_id}`);
+                        let player = document.querySelector(`#${player_id}`);
+                        my_comment_list_elem = document.querySelector(`#${player_id} #${my_comment_list_id}`);
+                        my_comment_list_bottom_parent_elem = document.querySelector(`#${player_id} #${my_comment_list_id} #${my_comment_list_bottom_parent_id}`);
+                        my_comment_list_bottom_child_elem = document.querySelector(`#${player_id} #${my_comment_list_id} #${my_comment_list_bottom_parent_id} #${my_comment_list_bottom_child_id}`);
                         if(my_comment_list_elem == null){
                             my_comment_list_elem = document.createElement('div');
                             my_comment_list_elem.setAttribute("id",my_comment_list_id);
@@ -65,29 +69,29 @@ function callback(mutationList, observer) {
                             },30);
                         },3000);
 
-                        var user_comment_text = document.createTextNode(node.querySelector(`#${user_comment_id}`).textContent);
-                        var user_comment_timestamp = document.createTextNode(node.querySelector(`#${user_post_time_id}`).textContent);
-                        var user_name = document.createTextNode(node.querySelector(`#${user_name_id}`).textContent);
-                        var user_comment_html = node.querySelector(`#${user_comment_id}`).innerHTML;
-                        var user_icon_url = node.querySelector(`#${user_icon_id}`).src;
+                        let user_comment_text = document.createTextNode(node.querySelector(`#${user_comment_id}`).textContent);
+                        let user_comment_timestamp = document.createTextNode(node.querySelector(`#${user_post_time_id}`).textContent);
+                        let user_name = document.createTextNode(node.querySelector(`#${user_name_id}`).textContent);
+                        let user_comment_html = node.querySelector(`#${user_comment_id}`).innerHTML;
+                        let user_icon_url = node.querySelector(`#${user_icon_id}`).src;
 
 
-                        var my_comment_elem = document.createElement('div');
+                        let my_comment_elem = document.createElement('div');
                         my_comment_elem.setAttribute("class",my_comment_class);
 
-                        var my_user_icon_elem = document.createElement('img');
+                        let my_user_icon_elem = document.createElement('img');
                         my_user_icon_elem.setAttribute("class",my_user_icon_class);
                         my_user_icon_elem.src = user_icon_url;
 
-                        var my_user_name_elem = document.createElement('span');
+                        let my_user_name_elem = document.createElement('span');
                         my_user_name_elem.setAttribute("class",my_user_name_class);
                         my_user_name_elem.appendChild(user_name);
 
-                        var my_user_timestamp_elem = document.createElement('p');
+                        let my_user_timestamp_elem = document.createElement('p');
                         my_user_timestamp_elem.setAttribute("class",my_user_timestamp_class);
                         my_user_timestamp_elem.appendChild(user_comment_timestamp);
 
-                        var my_message_elem = document.createElement('span');
+                        let my_message_elem = document.createElement('span');
                         my_message_elem.setAttribute("class",my_message_class);
                         //my_message_elem.appendChild(user_comment_text);
                         my_message_elem.insertAdjacentHTML("afterbegin",user_comment_html);
@@ -100,16 +104,16 @@ function callback(mutationList, observer) {
                         // <!-- afterend -->
                         // element.insertAdjacentHTML('afterbegin', '<b>Test:</b>');
 
-                        var my_user_data_elem = document.createElement('div');
+                        let my_user_data_elem = document.createElement('div');
                         my_user_data_elem.setAttribute("class",my_user_data_class);
 
-                        var my_user_data_header_elem = document.createElement('div');
+                        let my_user_data_header_elem = document.createElement('div');
                         my_user_data_header_elem.setAttribute("class",my_user_data_header_class);
 
-                        var my_user_data_content_elem = document.createElement('div');
+                        let my_user_data_content_elem = document.createElement('div');
                         my_user_data_content_elem.setAttribute("class",my_user_data_content_class);
 
-                        var my_user_data_header_text_elem = document.createElement('div');
+                        let my_user_data_header_text_elem = document.createElement('div');
                         my_user_data_header_text_elem.setAttribute("class",my_user_data_header_text_class);
                         my_user_data_header_text_elem.appendChild(my_user_name_elem);
                         my_user_data_header_text_elem.appendChild(my_user_timestamp_elem);
@@ -156,10 +160,10 @@ function callback(mutationList, observer) {
 }
 
 function myfunc1(){
-    var chat_frame_elem = null;
-    var counter = 0;
+    let chat_frame_elem = null;
+    let counter = 0;
 
-    var id = setInterval(function(){
+    let id = setInterval(function(){
         counter++;
         if(counter > MAX_COUNT){
             clearInterval(id);
@@ -173,10 +177,10 @@ function myfunc1(){
 }
 function myfunc2(){
     chat_frame_elem = document.querySelector(`#${chat_frame_id}`);
-    var chat_elem = null;
-    var counter = 0;
+    let chat_elem = null;
+    let counter = 0;
 
-    var id = setInterval(function(){
+    let id = setInterval(function(){
         counter++;
         if(counter > MAX_COUNT){
             clearInterval(id);
@@ -189,18 +193,47 @@ function myfunc2(){
     },1000);
 }
 function myfunc3(){
-    var chat_frame_elem = document.querySelector(`#${chat_frame_id}`);
-    var chat_elem = chat_frame_elem.contentDocument.querySelector(`#${chat_id}`);
-    var chat_items_elem = chat_elem.querySelector(`#${items_id}`);
-    var observerOptions = {
+    let chat_frame_elem = document.querySelector(`#${chat_frame_id}`);
+    let chat_elem = chat_frame_elem.contentDocument.querySelector(`#${chat_id}`);
+    let chat_items_elem = chat_elem.querySelector(`#${items_id}`);
+    let observerOptions = {
         characterData: true,
         childList: true,
         attributes: true,
         subtree: true
     }
 
-    var observer = new MutationObserver(callback);
+    observer = new MutationObserver(callback);
     //observer.observe(chat_elem, observerOptions); // target element in chat
     observer.observe(chat_items_elem, observerOptions); // target element in chat
 }
-myfunc1();
+chrome.storage.sync.get('checked', function(data) {
+    if(data.checked == 1){
+        myfunc1();
+    }else{
+    }
+});
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+    //console.log(request.message); // received message
+    if(request.message == "ON"){
+        //comment_transparent_intid = null;
+        //comment_transparent_timid = null;
+        //observer = null;
+        myfunc1();
+    }else if(request.message == "OFF"){
+        if(comment_transparent_intid != null){
+            clearInterval(comment_transparent_intid);
+        }
+        if(comment_transparent_timid != null){
+            clearInterval(comment_transparent_timid);
+        }
+        if(observer != null){
+            observer.disconnect();
+        }
+        if(my_comment_list_elem != null){
+            my_comment_list_elem.remove();
+        }
+    }
+    sendResponse("RES");
+});

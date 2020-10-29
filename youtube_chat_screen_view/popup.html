@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-  <html>
+<html>
     <head>
-      <style>
-        button {
-          height: 30px;
-          width: 30px;
-          outline: none;
-        }
-      </style>
     </head>
     <body>
-      <button id="changeColor"></button>
-      <script src="popup.js"></script>
+        <link rel="stylesheet" href="popup.css">
+        <script src="window_onload.js"></script>
+        <script src="popup.js"></script>
+        <!--
+        <input type='button' id='screen_on' value='ON'>
+        <input type='button' id='screen_off' value='OFF'>
+        -->
+        <input type="hidden" id="switch-chk" name="switch" value="1" checked="checked"></input>
+        <div id="toggle-bck">
+            <div id="toggle-btn">
+            </div>
+        </div>
     </body>
 </html>
