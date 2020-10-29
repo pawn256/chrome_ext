@@ -129,6 +129,13 @@ function callback(mutationList, observer) {
                         my_user_data_elem.appendChild(my_user_data_content_elem);
                         my_comment_elem.appendChild(my_user_data_elem);
                         my_comment_list_bottom_child_elem.appendChild(my_comment_elem);
+                        let comment_list = my_comment_list_bottom_child_elem.querySelectorAll(`.${my_comment_class}`);
+                        if(comment_list != null){
+                            if(comment_list.length > 20){
+                                console.log("REMOVE");
+                                comment_list[0].remove();
+                            }
+                        }
                         // <div id="my-comment-list">
                         //    <div id="my-comment-list-bottom-parent">
                         //        <div id="my-comment-list-bottom-child">
