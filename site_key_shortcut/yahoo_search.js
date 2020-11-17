@@ -14,8 +14,8 @@ var focus_idx = 0;
 var max_idx = link.length-1;
 link[focus_idx].focus(); // default focus.
 
-var search_form1 = document.querySelectorAll('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp')[0]
-var search_form2 = document.querySelectorAll('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp')[1]
+var search_form1 = document.querySelectorAll('.SearchBox__searchInput.js-SearchBox__searchInput')[0]
+var search_form2 = document.querySelectorAll('.SearchBox__searchInput.js-SearchBox__searchInput')[1]
 var btnprev = document.querySelector('.Pagenation__prev > a');
 var btnnext = document.querySelector('.Pagenation__next > a');
 document.addEventListener('keydown', (event) => {
