@@ -58,7 +58,8 @@ document.addEventListener('keydown', (event) => {
                 }
             }else if(keyName == "/"){
                 event.preventDefault();
-                var maxlen = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp').value.length;
+                //var maxlen = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp').value.length;
+                var maxlen = search_form1.value.length;
                 search_form1.focus();
                 search_form1.setSelectionRange(maxlen,maxlen);
             }else if(keyName == "Escape"){
