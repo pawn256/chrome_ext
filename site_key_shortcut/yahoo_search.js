@@ -1,4 +1,4 @@
-var link_class_name = '.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner';
+var link_class_name = '.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner .sw-Card__titleInner';
 const lists = Array.from(document.querySelectorAll(link_class_name));
 lists.forEach(link => {
     link.addEventListener("focus", e => {
