@@ -12,13 +12,13 @@
     transition-timing-function: ease-out;
     transition-delay: 0s;
 }
-.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner:focus{
+.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner a:first-child:focus{
     outline: none;
     outline-color: initial;
     outline-style: none;
     outline-width: initial;
 }
-.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner:focus::before{
+.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner a:first-child:focus::before{
     /*content: "7/8 ▶";*/
     /*content: var(--focus-before-content);*/
     content: attr(data-content-idx);
