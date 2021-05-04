@@ -1,11 +1,7 @@
 //var link=document.querySelectorAll('#rso > .g:not(.kno-kp) .rc .yuRUbf > a');
-//var link=document.querySelectorAll('.hlcw0c .rc .yuRUbf > a')
-//var link=document.querySelectorAll('.hlcw0c .yuRUbf > a')
-var link=document.querySelectorAll('.tF2Cxc .yuRUbf > a')
+var link=document.querySelectorAll('.hlcw0c .rc .yuRUbf > a')
 //const lists = Array.from(document.querySelectorAll("#rso > .g:not(.kno-kp) .rc .yuRUbf > a"));
-//const lists = Array.from(document.querySelectorAll(".hlcw0c .rc .yuRUbf > a"));
-//const lists = Array.from(document.querySelectorAll(".hlcw0c .yuRUbf > a"));
-const lists = Array.from(document.querySelectorAll('.tF2Cxc .yuRUbf > a'));
+const lists = Array.from(document.querySelectorAll(".hlcw0c .rc .yuRUbf > a"));
 lists.forEach(link => {
     link.addEventListener("focus", e => {
         const index = lists.findIndex(list => list === e.target);
@@ -20,8 +16,7 @@ var max_idx=link.length-1;
 link[focus_idx].focus(); // default focus.
 
 document.addEventListener('keydown', (event) => {
-    //var search_form=document.querySelector('.gLFyf.gsfi');
-    var search_form=document.querySelectorAll('.gLFyf.gsfi')[1];
+    var search_form=document.querySelector('.gLFyf.gsfi');
     var keyName = event.key;
     var btnnext = document.querySelector('#pnnext');
     var btnprev = document.querySelector('#pnprev');

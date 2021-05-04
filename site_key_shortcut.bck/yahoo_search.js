@@ -1,11 +1,6 @@
-//var link=document.querySelectorAll('#rso > .g:not(.kno-kp) .rc .yuRUbf > a');
-//var link=document.querySelectorAll('.hlcw0c .rc .yuRUbf > a')
-//var link=document.querySelectorAll('.hlcw0c .yuRUbf > a')
-var link=document.querySelectorAll('.tF2Cxc .yuRUbf > a')
-//const lists = Array.from(document.querySelectorAll("#rso > .g:not(.kno-kp) .rc .yuRUbf > a"));
-//const lists = Array.from(document.querySelectorAll(".hlcw0c .rc .yuRUbf > a"));
-//const lists = Array.from(document.querySelectorAll(".hlcw0c .yuRUbf > a"));
-const lists = Array.from(document.querySelectorAll('.tF2Cxc .yuRUbf > a'));
+//var link_class_name = '.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner .sw-Card__titleInner';
+var link_class_name = '.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner a:first-child';
+const lists = Array.from(document.querySelectorAll(link_class_name));
 lists.forEach(link => {
     link.addEventListener("focus", e => {
         const index = lists.findIndex(list => list === e.target);
@@ -15,18 +10,22 @@ lists.forEach(link => {
         e.target.setAttribute('data-content-idx',"");
     });
 });
-var focus_idx=0;
-var max_idx=link.length-1;
+var link=document.querySelectorAll(link_class_name);
+var focus_idx = 0;
+var max_idx = link.length-1;
 link[focus_idx].focus(); // default focus.
 
+var search_form1 = document.querySelectorAll('.SearchBox__searchInput.js-SearchBox__searchInput')[0]
+var search_form2 = document.querySelectorAll('.SearchBox__searchInput.js-SearchBox__searchInput')[1]
+var btnprev = document.querySelector('.Pagenation__prev > a');
+var btnnext = document.querySelector('.Pagenation__next > a');
 document.addEventListener('keydown', (event) => {
-    //var search_form=document.querySelector('.gLFyf.gsfi');
-    var search_form=document.querySelectorAll('.gLFyf.gsfi')[1];
     var keyName = event.key;
-    var btnnext = document.querySelector('#pnnext');
-    var btnprev = document.querySelector('#pnprev');
     console.log(keyName);
-    if(document.activeElement == search_form && keyName != "Tab"){
+    if((document.activeElement == search_form1 || document.activeElement == search_form2)  && keyName != "Tab"){
+            if(keyName == "Escape"){
+                event.preventDefault(); // stopped the erasing string function of yahoo.
+            }
     }else{
 
         if(event.ctrlKey){
@@ -60,9 +59,10 @@ document.addEventListener('keydown', (event) => {
                 }
             }else if(keyName == "/"){
                 event.preventDefault();
-                var maxlen=search_form.getAttribute('maxlength');
-                search_form.focus();
-                search_form.setSelectionRange(maxlen,maxlen);
+                //var maxlen = document.querySelector('.SearchBox__searchInput.js-SearchBox__searchInput.rapid-noclick-resp').value.length;
+                var maxlen = search_form1.value.length;
+                search_form1.focus();
+                search_form1.setSelectionRange(maxlen,maxlen);
             }else if(keyName == "Escape"){
             }
         }
@@ -80,11 +80,8 @@ document.addEventListener('keypress', (event) => {
 });
 
 document.addEventListener('keyup', (event) => {
-    var search_form=document.querySelector('.gLFyf.gsfi');
     var keyName = event.key;
-    var btnnext = document.querySelector('#pnnext');
-    var btnprev = document.querySelector('#pnprev');
-    if(document.activeElement == search_form && keyName != "Tab" && keyName != "Escape"){
+    if((document.activeElement == search_form1 || document.activeElement == search_form2) && keyName != "Tab" && keyName != "Escape"){
     }else{
 
         if(event.ctrlKey){
@@ -92,7 +89,8 @@ document.addEventListener('keyup', (event) => {
         }else{
             if(keyName == "/"){
             }else if(keyName == "Escape"){
-                search_form.blur();
+                search_form1.blur();
+                search_form2.blur();
             }
         }
     }

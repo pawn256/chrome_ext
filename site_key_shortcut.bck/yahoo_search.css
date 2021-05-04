@@ -1,5 +1,4 @@
-/*.sw-Card__title.sw-Card__title--cite:focus-within{*/
-.sw-Card__title a:first-child:focus-within{
+.sw-Card__title.sw-Card__title--cite:focus-within{
     outline: none;
     outline-color: initial;
     outline-style: none;
@@ -13,15 +12,13 @@
     transition-timing-function: ease-out;
     transition-delay: 0s;
 }
-/*.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner a:first-child:focus{*/
-.sw-Card__title a:first-child:focus-within{
+.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner a:first-child:focus{
     outline: none;
     outline-color: initial;
     outline-style: none;
     outline-width: initial;
 }
-/*.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner a:first-child:focus::before{*/
-.sw-Card__title a:first-child:focus::before{
+.sw-Card__title.sw-Card__title--cite .sw-Card__titleInner a:first-child:focus::before{
     /*content: "7/8 ▶";*/
     /*content: var(--focus-before-content);*/
     content: attr(data-content-idx);

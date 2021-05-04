@@ -1,5 +1,6 @@
 /*#rso > .g:not(.kno-kp) .rc .yuRUbf > a:focus{*/
-.hlcw0c .rc .yuRUbf > a:focus{
+/*.hlcw0c .rc .yuRUbf > a:focus{*/
+.tF2Cxc .yuRUbf > a:focus{
     outline: none;
     outline-color: initial;
     outline-style: none;
@@ -14,7 +15,8 @@
     transition-delay: 0s;
 }
 /*#rso > .g:not(.kno-kp) .rc .yuRUbf a:focus::before{*/
-.hlcw0c .rc .yuRUbf a:focus::before{
+/*.hlcw0c .rc .yuRUbf a:focus::before{*/
+.tF2Cxc .yuRUbf > a:focus::before{
     /*content: "7/8 ▶";*/
     /*content: var(--focus-before-content);*/
     content: attr(data-content-idx);
